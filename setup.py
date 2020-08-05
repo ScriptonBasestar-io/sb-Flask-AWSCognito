@@ -5,6 +5,7 @@ Flask-AWSCognito
 User authentication with AWS Cognito for Flask
 '''
 from setuptools import setup, find_packages
+import os
 
 try:
     from pypandoc import convert
