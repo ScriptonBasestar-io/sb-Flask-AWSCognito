@@ -44,3 +44,12 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 ```
+
+## REF
+
+* https://github.com/cgauge/Flask-AWSCognito
+* https://github.com/jetbridge/flask_cognito
+* https://github.com/plotlabs/cognises-flask
+* https://github.com/CloudySnake/flask-cognito-integration
+* https://github.com/forest6511/flask-app-bot3-cognito
+* https://github.com/forest6511/flask-app-bot3-cognito

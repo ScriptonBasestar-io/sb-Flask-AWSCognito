@@ -1,11 +1,12 @@
-'''
-Flask-AWSCognito
--------------
+import os
+import re
+from setuptools import setup
 
-User authentication with AWS Cognito for Flask
-'''
-from setuptools import setup, find_packages
+about = {}
+with open('flask_cognito/__about__.py') as f:
+    exec(f.read(), about)
 
+# Set external files
 try:
     from pypandoc import convert
     README = convert('README.md', 'rst')
@@ -18,26 +19,24 @@ with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
 with open(os.path.join(os.path.dirname(__file__), 'test_requirements.txt')) as f:
     test_required = f.read().splitlines()
 
-
 setup(
-    name='SB Flask AWSCognito',
+    name='SB Flask Cognito',
     version='0.1',
     url='https://github.com/ScriptonBasestar-io/sb-flask-cognito',
     license='MIT',
     author='CE',
     author_email='archmagece@gmail.com',
-    description='이것저것합쳐서',
+    description='',
     long_description=README,
-    long_description_content_type='text/markdown',
-    py_modules=['flask_cognito'],
-    packages=find_packages(),
+    long_description_content_type='text/markdown'
+    # packages=['sb_flask_cognito'],
+    py_modules=['sb_flask_cognito'],
     zip_safe=False,
     include_package_data=True,
-    platforms='any',
-    install_requires=[required, 'Flask', 'python-jose', 'requests'],
-    tests_require=[test_required],
-    extras_require={'tests': test_required},
-    python_requires='>=3.6',
+    install_requires=required,
+    tests_require=test_required,
+    test_suite='nose.collector',
+    include_package_data=True,
     classifiers=[
         'Environment :: Web Environment',
         'Programming Language :: Python',
