@@ -5,7 +5,30 @@
 
 Documentation https://flask-awscognito.readthedocs.io
 
+
+## Usage
+
+```python
+app = Flask(__name__)
+
+class CognitoConfig:
+    AWS_REGION = os.getenv('AWS_DEFAULT_REGION', 'ap-northeast-2')
+    COGNITO_DOMAIN = os.getenv('AWS_COGNITO_DOMAIN', 'domain.com')
+    COGNITO_USER_POOL_ID = os.getenv('AWS_COGNITO_USER_POOL_ID', '')
+    COGNITO_USER_POOL_CLIENT_ID = os.getenv('AWS_COGNITO_USER_POOL_CLIENT_ID', '')
+    COGNITO_USER_POOL_CLIENT_SECRET = os.getenv('AWS_COGNITO_USER_POOL_CLIENT_SECRET', '')
+    COGNITO_USER_POOL_CLIENT_LOGOUT_URL = os.getenv('AWS_COGNITO_USER_POOL_CLIENT_SECRET', '')
+    COGNITO_USER_POOL_CLIENT_REDIRECT_URL = os.getenv('AWS_COGNITO_REDIRECT_URL', 'http://localhost:5000/auth/redirect')
+    COGNITO_CHECK_TOKEN_EXPIRATION = os.getenv('COGNITO_CHECK_TOKEN_EXPIRATION', False)
+    COGNITO_JWT_HEADER_NAME = os.getenv('COGNITO_JWT_HEADER_NAME', 'X-MyApp-Authorization')
+    COGNITO_JWT_HEADER_PREFIX = os.getenv('COGNITO_JWT_HEADER_PREFIX', 'Bearer')
+
+app.config.from_object(CoognitoConfig)
+cognito = CognitoFlask(app)
+```
+
 ## Example App
+
 ```python
 from flask import Flask, redirect, request, jsonify
 from flask_awscognito import AWSCognitoAuthentication
