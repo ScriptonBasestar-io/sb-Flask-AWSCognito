@@ -59,7 +59,8 @@ def test_exchange_code_for_token(
     token = cognito.exchange_code_for_token(
         code="test_code", requests_client=token_endpoint_request
     )
-    assert token == "test_access_token"
+    # assert token == "test_access_token"
+    assert token["access_token"] == "test_access_token"
 
 @pytest.mark.usefixtures("set_env")
 def test_get_user_info(
